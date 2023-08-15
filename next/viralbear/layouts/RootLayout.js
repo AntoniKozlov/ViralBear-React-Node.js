@@ -15,21 +15,19 @@ const RootLayout = ({ children }) => {
         <SnackbarProvider maxSnack={3} anchorOrigin={{
             vertical: 'top',
             horizontal: 'center',
-          }}>
-            <Provider store={storeApp}>
-              {/* <NoSsr><ScrollToTop/></NoSsr> */}
-         
-              <Grid container>
+        }}>
+          <Provider store={storeApp}>
+            <Grid container>
               <Grid item xs={12}>
-                        <Menu />
-                    </Grid>
-                    <main>{children}</main>
-                    <Grid item xs={12}>
-                        <Footer />
-                    </Grid>
-                </Grid>
-            </Provider>
-          </SnackbarProvider>
+                  <Menu />
+              </Grid>
+              {children}
+              <Grid item xs={12}>
+                  <Footer />
+              </Grid>
+            </Grid>
+          </Provider>
+        </SnackbarProvider>
     );
   };
 

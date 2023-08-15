@@ -24,8 +24,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({limit: '50mb'}));
+
 app.use('/submitVideo', submitVideo);
 app.use('/contactUs', contactUs);
+
 app.use(express.static('public'));
 app.use(fileUpload());
 app.use(function (req, res) {

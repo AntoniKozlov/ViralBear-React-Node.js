@@ -57,7 +57,7 @@ const About = () => {
                     </Grid>
                 </Grid>
 
-                <Grid container item xs={12} lg={12} justify="center">
+                <Grid container item xs={12} lg={12} justifyContent="center">
                     {PARTNERS.map(partner =>
                         <Grid item xs={12} lg={4} className={classes.paddingBrands} key={partner.name}>
                             <Paper className={classNames(classes.padding, classes.paper)}>

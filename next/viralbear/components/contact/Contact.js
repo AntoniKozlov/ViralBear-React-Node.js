@@ -7,15 +7,14 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import ReCAPTCHA from 'react-google-recaptcha';
-import publicIP from 'react-native-public-ip';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import {withSnackbar} from 'notistack';
 import PropTypes from 'prop-types';
 
-import {validateEmail} from '../utils/validations';
+import {validateEmail} from '../../utils/validations';
 import {useStyles} from './Contact.module.styles';
-import {sendContacts} from '../redux/actions/sendingContacts';
-
+import {sendContacts} from '../../redux/actions/sendingContacts';
+import getClientIP from '../../api/ipAddress';
 
 const Contact = (props) => {
     const {status, message, enqueueSnackbar} = props;
@@ -27,39 +26,43 @@ const Contact = (props) => {
     const [email, setEmail] = React.useState('');
     const [messageField, setMessageField] = React.useState('');
     const [subject, setSubject] = React.useState('');
+    const [ipAddress, setIPAddress] = React.useState('');
 
     useEffect(() => {
         if (message != null && status != null)
             enqueueSnackbar(message, {
                 variant: status
             });
-    }, [status, message, enqueueSnackbar]);
+
+        getClientIP().then(data => {
+            setIPAddress(data.ip);
+        })
+    }, [status, message, enqueueSnackbar, getClientIP]);
+
 
     const onSubmit = () => {
-        publicIP()
-            .then(ip => {
-                if (name !== '' && subject !== '' && messageField !== '' && validateEmail(email)) {
-                    props.postContacts({
-                        mainInfo: {
-                            name: name,
-                            email: email,
-                            subject: subject,
-                            message: messageField,
-                            ip: ip
-                        }
-                    });
-
-                    setName('');
-                    setEmail('');
-                    setSubject('');
-                    setMessageField('');
-                } else {
-                    props.enqueueSnackbar('Data was entered incorrectly!', {
-                        variant: 'error'
-                    });
+        if (name !== '' && subject !== '' && messageField !== '' && validateEmail(email)) {
+            props.postContacts({
+                mainInfo: {
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: messageField,
+                    ip: ipAddress
                 }
-            })
+            });
+
+            setName('');
+            setEmail('');
+            setSubject('');
+            setMessageField('');
+        } else {
+            props.enqueueSnackbar('Data was entered incorrectly!', {
+                variant: 'error'
+            });
+        }
     };
+
     return (
         <Grid container className={classes.paddingTopBottom}>
             <Grid item xs={false} lg={3}/>
@@ -126,7 +129,7 @@ const Contact = (props) => {
                         label="Your message"
                         fullWidth
                         multiline
-                        rows={4}
+                        minRows={4}
                         value={messageField}
                         variant="outlined"
                         onChange={event => setMessageField(event.target.value)}

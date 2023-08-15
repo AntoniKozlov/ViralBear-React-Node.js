@@ -1,7 +1,10 @@
 import SubmitVideo from '../components/submit-video/SubmitVideo';
+import RootLayout from '../layouts/RootLayout';
 
 export default function SubmitVideoPage() {
     return (
-      <SubmitVideo/>
+      <RootLayout>
+        <SubmitVideo/>
+      </RootLayout>
     )
 }

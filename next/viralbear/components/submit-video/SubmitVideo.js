@@ -10,7 +10,6 @@ import Switch from '@material-ui/core/Switch';
 import Icon from '@material-ui/core/Icon';
 import ReCAPTCHA from 'react-google-recaptcha';
 import classNames from 'classnames';
-import publicIP from 'react-native-public-ip';
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types';
 import {withSnackbar} from 'notistack';
@@ -20,6 +19,7 @@ import {validateEmail, validateLink} from '../../utils/validations';
 import {useStyles} from './SubmitVideo.module.styles';
 import TabPanel from '../features/tab-panel/TabPanel';
 import CircularProgressWithLabel from '../features/progress/Progress';
+import getClientIP from '../../api/ipAddress';
 
 
 const SubmitVideo = (props) => {
@@ -41,58 +41,61 @@ const SubmitVideo = (props) => {
     const [accept, setAccept] = React.useState(false);
     const [agreeRecord, setAgreeRecord] = React.useState(true);
     const [operator, setOperator] = React.useState('');
+    const [ipAddress, setIPAddress] = React.useState('');
 
     useEffect(() => {
         if (message != null && status != null)
             enqueueSnackbar(message, {
                 variant: status
             });
-    }, [status, message, enqueueSnackbar]);
+
+        getClientIP().then(data => {
+            setIPAddress(data.ip);
+        })
+    }, [status, message, enqueueSnackbar, getClientIP]);
 
     const handleChange = (e) => {
         const file = e.target.files[0];
         setFile(file);
     };
 
-    const onSubmit = () =>
-        publicIP()
-            .then(ip => {
-                const formData = new FormData();
-                formData.append('file', file);
+    const onSubmit = () => {
+        const formData = new FormData();
+        formData.append('file', file);
 
-                if (name !== '' && lastName !== '' && signature !== '' && validateEmail(email) &&
-                    !((!file && !link) || (file && link) || !validateLink(link)) && ((!agreeRecord && operator !== '')
-                        || agreeRecord) && age && accept) {
+        if (name !== '' && lastName !== '' && signature !== '' && validateEmail(email) &&
+            !((!file && !link) || (file && link) || !validateLink(link)) && ((!agreeRecord && operator !== '')
+                || agreeRecord) && age && accept) {
 
-                    props.postVideo({
-                        formData, mainInfo: {
-                            last_name: lastName,
-                            video_link: link,
-                            video_owner: agreeRecord ? "Yes" : operator,
-                            name,
-                            signature,
-                            ip,
-                            email
-                        }, file
-                    });
-
-                    if (!file) signaturePad.current.clear();
-                    setName('');
-                    setLastName('');
-                    setEmail('');
-                    setLink('');
-                    setOperator('');
-                    setSignature('');
-                    setFile('');
-                    setAge(false);
-                    setAccept(false);
-                    setAgreeRecord(true);
-                } else {
-                    props.enqueueSnackbar('Data was entered incorrectly!', {
-                        variant: 'error'
-                    });
-                }
+            props.postVideo({
+                formData, mainInfo: {
+                    last_name: lastName,
+                    video_link: link,
+                    video_owner: agreeRecord ? "Yes" : operator,
+                    name,
+                    signature,
+                    ip: ipAddress,
+                    email
+                }, file
             });
+
+            if (!file) signaturePad.current.clear();
+            setName('');
+            setLastName('');
+            setEmail('');
+            setLink('');
+            setOperator('');
+            setSignature('');
+            setFile('');
+            setAge(false);
+            setAccept(false);
+            setAgreeRecord(true);
+        } else {
+            props.enqueueSnackbar('Data was entered incorrectly!', {
+                variant: 'error'
+            });
+        }
+    };
 
     return (
         <Grid container className={classes.paddingTopBottom}>
@@ -303,7 +306,7 @@ SubmitVideo.propTypes = {
     status: PropTypes.string
 };
 
-const mapStateToProps = function (state) {
+const mapStateToProps = (state) => {
     return {
         loading: state.videoSubmitting.loading,
         percent: state.videoSubmitting.percent,

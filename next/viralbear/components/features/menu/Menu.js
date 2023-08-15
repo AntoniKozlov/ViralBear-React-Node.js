@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Link from 'next';
+import Link from 'next/link';
 import { Grid, AppBar, Toolbar, Typography } from '@material-ui/core';
 
 import { useStyles } from './Menu.Styles.js';
