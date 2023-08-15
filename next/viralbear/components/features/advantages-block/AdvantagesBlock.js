@@ -8,8 +8,8 @@ const AdvantagesBlock = () => {
     const classes = useStyles();
 
     return (
-        <Grid container item className={classNames(classes.flex, classes.advantages)}>
-            <Grid className={classNames(classes.flex, classes.advantagesInner, classes.whiteText)}>
+        <Grid container item className={classNames(classes.flex, classes.advantages)} xs={12}>
+            <Grid container item className={classNames(classes.flex, classes.advantagesInner, classes.whiteText)} xs={12}>
                 <Grid item container direction="column" className={classes.advantagesElement}>
                     <Grid item>
                         <img src="/assets/images/trustworthy.png" className={classes.img} alt=""/>

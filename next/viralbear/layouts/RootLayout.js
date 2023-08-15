@@ -6,7 +6,6 @@ import Menu from '../components/features/menu/Menu';
 import Footer from '../components/features/footer/Footer';
 import {store} from '../redux/index';
 import ScrollToTop from '../components/features/scroll-to-top/ScrollToTop';
-import NoSsr from '../components/NoSsr';
 
 const storeApp = store;
 
@@ -17,7 +16,8 @@ const RootLayout = ({ children }) => {
             horizontal: 'center',
         }}>
           <Provider store={storeApp}>
-            <Grid container>
+            <ScrollToTop/>
+            <Grid container item xs={12}>
               <Grid item xs={12}>
                   <Menu />
               </Grid>

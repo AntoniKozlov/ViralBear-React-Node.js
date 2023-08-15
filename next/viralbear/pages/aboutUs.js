@@ -1,7 +1,12 @@
 import About from '../components/about/About';
+import RootLayout from '../layouts/RootLayout';
 
-export default function AboutUs() {
+const aboutUs = () => {
     return (
-      <About/>
+      <RootLayout>
+        <About/>
+      </RootLayout>
     )
 }
+
+export default aboutUs;

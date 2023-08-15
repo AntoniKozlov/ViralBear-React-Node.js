@@ -7,7 +7,7 @@ import {FileCopy, Link as LinkIcon} from '@material-ui/icons';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import Icon from '@material-ui/core/Icon';
+import SendIcon from '@mui/icons-material/Send';
 import ReCAPTCHA from 'react-google-recaptcha';
 import classNames from 'classnames';
 import {connect} from 'react-redux'
@@ -287,7 +287,7 @@ const SubmitVideo = (props) => {
                         />
 
                         <Grid item xs={12}>
-                            <Button fullWidth variant="contained" color="primary" endIcon={<Icon>send</Icon>}
+                            <Button fullWidth variant="contained" color="primary" endIcon={<SendIcon/>}
                                     onClick={() => onSubmit()}>
                                 SEND VIDEO
                             </Button>

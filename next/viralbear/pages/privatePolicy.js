@@ -1,7 +1,12 @@
 import PrivatePolicy from '../components/private-policy/PrivatePolicy';
+import RootLayout from '../layouts/RootLayout';
 
-export default function PrivatePolicyPage() {
+const privatePolicyPage = () => {
     return (
-      <PrivatePolicy/>
+      <RootLayout>
+        <PrivatePolicy/>
+      </RootLayout>
     )
 }
+
+export default privatePolicyPage;

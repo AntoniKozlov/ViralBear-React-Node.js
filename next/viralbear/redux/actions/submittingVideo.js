@@ -9,7 +9,7 @@ import {
 import api from '../../api/axiosInstance';
 import {calculationPercent} from '../../utils/calculationPercent';
 
-export const submitVideo = ({formData, mainInfo, file}) => dispatch => {
+const submitVideo = ({formData, mainInfo, file}) => dispatch => {
     api.post('/submitVideo/storageSize', {file: !!file, fileSize: file.size})
         .then(res => {
             if (!res.data.closeAccess) {
@@ -48,6 +48,7 @@ export const submitVideo = ({formData, mainInfo, file}) => dispatch => {
 
 };
 
+export default submitVideo;
 /*     ACTIONS     */
 
 export const startSubmittingVideo = () => ({

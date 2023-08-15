@@ -5,7 +5,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
+import SendIcon from '@mui/icons-material/Send';
 import ReCAPTCHA from 'react-google-recaptcha';
 import {connect} from 'react-redux';
 import {withSnackbar} from 'notistack';
@@ -137,7 +137,7 @@ const Contact = (props) => {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Button fullWidth variant="contained" color="primary" endIcon={<Icon>send</Icon>}
+                    <Button fullWidth variant="contained" color="primary" endIcon={<SendIcon/>}
                             onClick={() => onSubmit()}>
                         SEND MESSAGE
                     </Button>

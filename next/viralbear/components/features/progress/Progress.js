@@ -6,7 +6,7 @@ import React from 'react';
 
 import {useStyles} from './Progress.Styles';
 
-export default function CircularProgressWithLabel(props) {
+const CircularProgressWithLabel = (props) => {
     const classes = useStyles();
 
     return (
@@ -28,6 +28,8 @@ export default function CircularProgressWithLabel(props) {
         </Box>
     );
 }
+
+export default CircularProgressWithLabel;
 
 CircularProgressWithLabel.propTypes = {
     value: PropTypes.number.isRequired,

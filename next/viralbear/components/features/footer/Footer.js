@@ -20,9 +20,9 @@ const Footer = () => {
     return (
         <AppBar position="static" className={classes.appBar}>
             <Grid container direction="column">
-                <Grid container item xs={10} className={classNames(classes.marginAuto, classes.topBlock)}>
-                    <Grid xs={7} item container direction="column">
-                        <Grid item className={classNames(classes.flex)}>
+                <Grid container direction={{xs: 'column', sm: 'column', md: 'column' }} justifyContent='center' item xs={10} className={classNames(classes.marginAuto, classes.topBlock)}>
+                    <Grid xs={10} item container direction="column" sx={{ alignContent: { xs: 'center', sm: 'center', md: 'center'} }} className={classNames(classes.minWidth)}>
+                        <Grid item className={classNames(classes.flex)} marginAuto={{ xs: 'auto', sm: 'auto', md: 'auto' }}>
                             <Typography variant="h5" className={classes.underLineTwo}>CONTACT US</Typography>
                         </Grid>
                         <Grid item container direction="column" className={classes.paddingTopBottom}>
@@ -43,7 +43,7 @@ const Footer = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid xs={5} item container direction="column">
+                    <Grid xs={10} item container direction="column" className={classNames(classes.minWidth)}>
                         <Grid item className={classNames(classes.flex)}>
                             <Typography variant="h5" className={classes.underLineTwo}>OTHER ITEMS</Typography>
                         </Grid>
@@ -79,15 +79,16 @@ const Footer = () => {
                     </Grid>
                 </Grid>
 
-                <Grid container item xs={10} className={classNames(classes.marginAuto, classes.paddingTopBottom)}>
-                    <Grid xs={5} item className={classNames(classes.alignText, classes.flex)}>
+                <Grid container direction="column" item xs={10} className={classNames(classes.marginAuto, classes.paddingTopBottom, classes.block)}>
+
+                    <Grid container xs={10} item className={classNames(classes.alignText, classes.flex)}>
                         <Typography variant="subtitle1">© Copyright Launchpad Entertainment, LLC. 2020. All rights
                             reserved.</Typography>
                     </Grid>
-                    <Grid xs={3} item className={classes.marginAuto}>
+                    {/* <Grid xs={3} item className={classes.marginAuto}>
                         <img src="" className={classes.img} alt=""/>
-                    </Grid>
-                    <Grid xs={4} item className={classNames(classes.centeredContent, classes.flex)}>
+                    </Grid> */}
+                    <Grid container direction={{ xs: 'column' }} xs={10} item className={classNames(classes.centeredContent, classes.flex)}>
                         <IconButton href="https://facebook.com">
                             <FacebookIcon fontSize="large"/>
                         </IconButton>

@@ -1,10 +1,12 @@
 import RootLayout from '../layouts/RootLayout';
 import Main from '../components/home/Main';
 
-export default function Home() {
+const home = () => {
   return (
     <RootLayout>
       <Main/>
     </RootLayout>
   )
 }
+
+export default home;

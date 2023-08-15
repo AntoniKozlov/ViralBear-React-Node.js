@@ -1,10 +1,12 @@
 import Contact from '../components/contact/Contact';
 import RootLayout from '../layouts/RootLayout';
 
-export default function ContactUs() {
+const contactUs = () => {
     return (
       <RootLayout>
         <Contact/>
       </RootLayout>
     )
 }
+
+export default contactUs;

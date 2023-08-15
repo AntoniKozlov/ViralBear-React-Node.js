@@ -35,8 +35,11 @@ const useStyles = makeStyles(() => ({
     },
     advantagesElement: {
         textAlign: 'center',
-        width: '20%',
-        marginBottom: 'auto'
+        width: 'auto',
+        maxWidth: '20%',
+        minWidth: '300px',
+        marginBottom: 'auto',
+        marginTop: '25px'
     },
     borderTopBottom: {
         borderTop: '2px solid',

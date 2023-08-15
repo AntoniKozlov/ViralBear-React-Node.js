@@ -1,6 +1,9 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
+    block: {
+        display: 'block'
+    },
     flex: {
         display: 'flex'
     },
@@ -54,9 +57,12 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: '100%'
     },
     alignText: {
-        textAlign: 'start',
+        textAlign: 'center',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    minWidth: {
+        minWidth: '300px'
     }
 }));
 

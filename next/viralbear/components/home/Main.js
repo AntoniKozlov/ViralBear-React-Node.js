@@ -31,7 +31,7 @@ const Main = () => {
                     </Link>
                 </Container>
             </Grid>
-            <Grid item xs={false} lg={4}/>
+            <Grid item xs={12} lg={4}/>
             <Grid container item xs={12} className={classNames(classes.flex, classes.centeredContent)}>
                 <PartnersList/>
             </Grid>
