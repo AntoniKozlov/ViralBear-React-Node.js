@@ -1,5 +1,7 @@
 {
     "rules": {
         "@next/next/no-document-import-in-page": "off"
-    }
+    },
+    "parser": "@babel/eslint-parser",
+    "requireConfigFile": false
 }

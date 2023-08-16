@@ -85,7 +85,7 @@ const Footer = () => {
                         <Typography variant="subtitle1">© Copyright Launchpad Entertainment, LLC. 2020. All rights
                             reserved.</Typography>
                     </Grid>
-                    <Grid container direction={{ xs: 'column' }} xs={10} item className={classNames(classes.centeredContent, classes.flex)}>
+                    <Grid container direction='row' xs={10} item className={classNames(classes.centeredContent, classes.flex)}>
                         <IconButton href="https://facebook.com">
                             <FacebookIcon fontSize="large"/>
                         </IconButton>
