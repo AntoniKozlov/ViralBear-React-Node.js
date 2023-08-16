@@ -62,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(4, 0)
     },
     descriptionDirection: {
-        display: 'block',
         margin: 'auto',
         flexDirection: 'row',
         textAlign: 'center',
