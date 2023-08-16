@@ -57,11 +57,11 @@ const About = () => {
                     </Grid>
                 </Grid>
 
-                <Grid container item xs={12} lg={12} justifyContent="center">
+                <Grid container item xs={10} justifyContent="center">
                     {PARTNERS.map(partner =>
-                        <Grid item xs={12} lg={4} className={classes.paddingBrands} key={partner.name}>
+                        <Grid item xs={12} md={6} lg={4} className={classes.paddingBrands} key={partner.name}>
                             <Paper className={classNames(classes.padding, classes.paper)}>
-                                <img src={partner.src} height={60} alt=""/>
+                                <img src={partner.src} height={40} alt=""/>
                             </Paper>
                         </Grid>)}
                 </Grid>

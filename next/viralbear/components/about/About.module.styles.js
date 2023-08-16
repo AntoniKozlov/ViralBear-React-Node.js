@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#fff'
     },
     padding: {
-        padding: theme.spacing(4)
+        padding: theme.spacing(2)
     },
     workBlockSection: {
         display: 'flex',
