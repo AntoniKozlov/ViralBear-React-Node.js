@@ -100,12 +100,13 @@ const SubmitVideo = (props) => {
     return (
         <Grid container className={classes.paddingTopBottom}>
             {props.loading && props.percent !== 100 ?
-                <Grid className={classes.sizeGridProgress}><CircularProgressWithLabel
-                    value={props.percent}/></Grid> : <>
+                <Grid className={classes.sizeGridProgress}>
+                    <CircularProgressWithLabel
+                        value={props.percent}/></Grid> : <>
                     <Grid item xs={false} lg={3}/>
-                    <Grid container item xs={12} lg={6} spacing={3}>
+                    <Grid container item xs={12} lg={6} spacing={3} className={classes.marginAuto}>
                         <Grid item xs={12}>
-                            <Typography variant="h2">
+                            <Typography variant="h3">
                                 Submit a video
                             </Typography>
                         </Grid>

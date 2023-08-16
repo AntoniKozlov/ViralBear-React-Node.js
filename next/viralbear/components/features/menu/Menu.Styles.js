@@ -4,8 +4,8 @@ const useStyles = makeStyles(() => ({
     flex: {
         display: 'flex'
     },
-    spacedBetween: {
-        justifyContent: 'space-between'
+    spacedEvenly: {
+        justifyContent: 'space-evenly'
     },
     link: {
         color: '#fff',

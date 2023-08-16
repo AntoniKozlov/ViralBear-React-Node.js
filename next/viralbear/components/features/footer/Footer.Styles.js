@@ -63,6 +63,38 @@ const useStyles = makeStyles((theme) => ({
     },
     minWidth: {
         minWidth: '300px'
+    },
+    footerTitleCenter: {
+        [theme.breakpoints.down('sm')]: {
+            justifyContent: 'center',
+        },
+    },
+    footerDirection: {
+        [theme.breakpoints.up('md')]: {
+            display: 'block'
+        },
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            alignContent: 'center'
+        },
+    },
+    floatRight: {
+        [theme.breakpoints.up('md')]: {
+            float: 'right',
+        },
+    },
+    floatLeft: {
+        [theme.breakpoints.up('md')]: {
+            float: 'left',
+        },
+    },
+    alignContentCenter: {
+        alignContent: 'center'
+    },
+    otherItems: {
+        [theme.breakpoints.down('xs')]: {
+            flexDirection: 'column',
+        },
     }
 }));
 

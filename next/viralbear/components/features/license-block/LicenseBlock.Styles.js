@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
         borderBottom: '2px solid #3f51b5'
     },
     video: {
-        margin: '30px',
-        width: '500px',
-        maxWidth: '85%'
+        maxWidth: '400px',
+        width: '100%',
+        margin: 'auto'
     },
     img: {
         margin: 'auto',
@@ -37,9 +37,12 @@ const useStyles = makeStyles((theme) => ({
     welcomeLicenseText: {
         alignItems: 'flex-start'
     },
-    marginTop: {
-        marginTop: 50
-    }
+    marginTopBottom50: {
+        margin: '50px 0px'
+    },
+    marginBottom25: {
+        marginBottom: '25px'
+    },
 }));
 
 export {useStyles}

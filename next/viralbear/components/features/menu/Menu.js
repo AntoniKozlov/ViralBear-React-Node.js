@@ -1,35 +1,46 @@
 import React from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { Grid, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { 
+    Grid, 
+    AppBar, 
+    Toolbar,  
+    CssBaseline,
+    useTheme,
+    useMediaQuery
+} from '@material-ui/core';
 
 import { useStyles } from './Menu.Styles.js';
+import DrawerComponent from "./drawer/Drawer.js";
 
 const Menu = () => {
     const classes = useStyles();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
     return (
         <AppBar position="static">
-            <Grid container>
-                <Grid item xs={false} lg={3} />
-                <Grid item xs={12} lg={6}>
-                    <Toolbar className={classNames(classes.flex, classes.spacedBetween)}>
-                        <Typography variant="h6">
-                            <Link className={classes.link} href="/">HOME</Link>
-                        </Typography>
-                        <Typography variant="h6">
-                            <Link className={classes.link} href="/aboutUs">ABOUT US</Link>
-                        </Typography>
-                        <Typography variant="h6">
-                            <Link className={classes.link} href="/contactUs">CONTACT US</Link>
-                        </Typography>
-                        <Typography variant="h6">
-                            <Link className={classes.link} href="/submitVideo">SUBMIT A VIDEO</Link>
-                        </Typography>
-                    </Toolbar>
-                </Grid>
-                <Grid item xs={false} lg={3} />
-            </Grid>
+            <CssBaseline />
+            <Toolbar>
+                {isMobile ? (
+                    <DrawerComponent />
+                ) : (
+                    <Grid item xs={12} className={classNames(classes.flex, classes.spacedEvenly)}>
+                        <Link href="/" className={classes.link}>
+                            HOME
+                        </Link>
+                        <Link href="/aboutUs" className={classes.link}>
+                            ABOUT US
+                        </Link>
+                        <Link href="/contactUs" className={classes.link}>
+                            CONTACT US
+                        </Link>
+                        <Link href="/submitVideo" className={classes.link}>
+                            SUBMIT A VIDEO
+                        </Link>
+                    </Grid>
+                )}
+            </Toolbar>
         </AppBar>
     )
 };

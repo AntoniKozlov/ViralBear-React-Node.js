@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         height: '100%'
     },
+    block: {
+        display: 'block',
+    },
     imageBackground: {
         backgroundImage: 'url(/assets/images/boat-at-autumn-lake.jpg)',
         backgroundSize: '100% 100%',
@@ -39,31 +42,35 @@ const useStyles = makeStyles((theme) => ({
     padding: {
         padding: theme.spacing(4)
     },
-    whatIs: {
-        float: 'left',
-        width: '50%',
+    workBlockSection: {
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: '0 auto auto auto'
     },
     textUnderline: {
         borderBottom: '2px solid #3f51b5'
     },
-    howWork: {
-        float: 'right',
-        width: '50%',
-        display: 'flex',
-        alignItems: 'center'
-    },
-
     brands: {
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: 'auto',
+        textAlign: 'center'
     },
     paddingTop: {
         paddingTop: theme.spacing(4)
     },
     paddingTopBottom: {
         padding: theme.spacing(4, 0)
-    }
+    },
+    descriptionDirection: {
+        display: 'block',
+        margin: 'auto',
+        flexDirection: 'row',
+        textAlign: 'center',
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+            alignContent: 'center'
+        },
+    },
 }));
 
 export {useStyles}

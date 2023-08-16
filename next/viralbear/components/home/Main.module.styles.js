@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
         backgroundSize: 'cover',
         width: '100%',
         maxWidth: 1920,
-        height: 700
+        height: 700,
+        flexWrap: 'wrap'
     },
     paddedLeft: {
         paddingLeft: theme.spacing(1)

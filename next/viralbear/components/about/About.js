@@ -13,9 +13,9 @@ const About = () => {
     return (
         <div className={classes.root}>
             <Container className={classNames(classes.flex, classes.centeredContent, classes.imageBackground)}>
-                <Grid item container direction="column" className={classes.whiteText}>
-                    <Grid item container className={classes.padding}>
-                        <Grid item container className={classNames(classes.whatIs, classes.padding)}
+                <Grid item container xs={10} direction="column" className={classNames(classes.whiteText, classes.block, classes.paddingTop)}>
+                    <Grid xs={10} lg={10} item container className={classNames(classes.descriptionDirection)}>
+                        <Grid xs={10} lg={5} item container className={classNames(classes.workBlockSection, classes.paddingTop)}
                               direction="column">
                             <Grid item>
                                 <Typography variant="h4" className={classes.textUnderline}>WHAT IS
@@ -31,7 +31,7 @@ const About = () => {
                                     to license their footage.</Typography>
                             </Grid>
                         </Grid>
-                        <Grid item container className={classNames(classes.howWork, classes.padding)}
+                        <Grid xs={10} lg={5} item container className={classNames(classes.workBlockSection, classes.paddingTop)}
                               direction="column">
                             <Grid item>
                                 <Typography variant="h4" className={classes.textUnderline}>HOW DOES IT
@@ -46,7 +46,7 @@ const About = () => {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item className={classes.brands} container direction="column">
+                    <Grid item xs={10} className={classNames(classes.brands, classes.paddingTop)} container direction="column">
                         <Grid item>
                             <Typography variant="h4" className={classes.textUnderline}>OUR BRANDS</Typography>
                         </Grid>

@@ -66,7 +66,7 @@ const Contact = (props) => {
     return (
         <Grid container className={classes.paddingTopBottom}>
             <Grid item xs={false} lg={3}/>
-            <Grid container item xs={12} lg={6} spacing={3}>
+            <Grid container item xs={10} lg={6} spacing={3} className={classes.marginAuto}>
                 <Grid item xs={12}>
                     <Typography variant="h2">
                         Contact Us

@@ -10,12 +10,12 @@ const LicenseBlock = () => {
     const classes = useStyles();
 
     return (
-        <Grid container item className={classNames(classes.marginTop)}>
+        <Grid container item className={classNames(classes.marginTopBottom50)}>
             <Grid container item xs={10} className={classNames(classes.marginAuto, classes.centeredContent)}>
-                <Grid xs={3} item className={classes.marginAuto}>
+                <Grid xs={10} lg={3} item className={classes.marginAuto}>
                     <img src="/assets/images/welcome.jpg" className={classes.img} alt=""/>
                 </Grid>
-                <Grid container xs={7} item className={classNames(classes.welcomeLicenseText, classes.marginAuto)}
+                <Grid container xs={10} lg={7} item className={classNames(classes.welcomeLicenseText, classes.marginAuto)}
                       direction="column">
                     <Grid item>
                         <Typography variant="h5" className={classes.textUnderline}>WELCOME</Typography>
@@ -35,7 +35,7 @@ const LicenseBlock = () => {
             </Grid>
 
             <Grid container item xs={10} className={classNames(classes.marginAuto, classes.centeredContent)}>
-                <Grid container xs={5} item className={classNames(classes.welcomeLicenseText, classes.marginAuto)}
+                <Grid container xs={10} lg={5} item className={classNames(classes.welcomeLicenseText, classes.marginBottom25)}
                       direction="column">
                     <Grid item>
                         <Typography variant="h5" className={classes.textUnderline}>LICENSING</Typography>
@@ -53,7 +53,7 @@ const LicenseBlock = () => {
                         </Link>
                     </Grid>
                 </Grid>
-                <Grid xs={5} item className={classes.marginAuto}>
+                <Grid xs={10} lg={5} item className={classes.marginAuto, classes.flex}>
                     <video
                         controls
                         className={classes.video}

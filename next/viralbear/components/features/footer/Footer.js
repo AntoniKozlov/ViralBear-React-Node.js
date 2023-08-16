@@ -20,9 +20,9 @@ const Footer = () => {
     return (
         <AppBar position="static" className={classes.appBar}>
             <Grid container direction="column">
-                <Grid container direction={{xs: 'column', sm: 'column', md: 'column' }} justifyContent='center' item xs={10} className={classNames(classes.marginAuto, classes.topBlock)}>
-                    <Grid xs={10} item container direction="column" sx={{ alignContent: { xs: 'center', sm: 'center', md: 'center'} }} className={classNames(classes.minWidth)}>
-                        <Grid item className={classNames(classes.flex)} marginAuto={{ xs: 'auto', sm: 'auto', md: 'auto' }}>
+                <Grid container justifyContent='center' item xs={10} className={classNames(classes.marginAuto, classes.topBlock, classes.footerDirection)}>
+                    <Grid xs={10} md={6} lg={6} item container direction="column"  className={classNames(classes.minWidth, classes.floatLeft)}>
+                        <Grid item className={classNames(classes.flex, classes.footerTitleCenter)}>
                             <Typography variant="h5" className={classes.underLineTwo}>CONTACT US</Typography>
                         </Grid>
                         <Grid item container direction="column" className={classes.paddingTopBottom}>
@@ -43,33 +43,33 @@ const Footer = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid xs={10} item container direction="column" className={classNames(classes.minWidth)}>
-                        <Grid item className={classNames(classes.flex)}>
+                    <Grid xs={10} md={6} lg={6} item container direction="column" className={classNames(classes.minWidth, classes.floatRight)}>
+                        <Grid item className={classNames(classes.flex, classes.footerTitleCenter)} >
                             <Typography variant="h5" className={classes.underLineTwo}>OTHER ITEMS</Typography>
                         </Grid>
                         <Grid item container
-                              className={classNames(classes.paddingTopBottom, classes.flex, classes.spaceBetween)}>
-                            <Grid item className={classNames(classes.padding, classes.flex)}>
+                              className={classNames(classes.paddingTopBottom, classes.flex, classes.spaceBetween, classes.otherItems)}>
+                            <Grid item className={classNames(classes.padding, classes.flex, classes.centeredContent)}>
                                 <Link className={classes.link} href="/">
                                     <Typography variant="subtitle1" className={classes.underLineOne}>FAQ</Typography>
                                 </Link>
                             </Grid>
                             <Divider orientation="vertical" flexItem className={classes.divider}/>
-                            <Grid item className={classNames(classes.padding, classes.flex)}>
+                            <Grid item className={classNames(classes.padding, classes.flex, classes.centeredContent)}>
                                 <Link className={classes.link} href="/privatePolicy">
                                     <Typography variant="subtitle1" className={classes.underLineOne}>
                                         Privacy Policy</Typography>
                                 </Link>
                             </Grid>
                             <Divider orientation="vertical" flexItem className={classes.divider}/>
-                            <Grid item className={classNames(classes.padding, classes.flex)}>
+                            <Grid item className={classNames(classes.padding, classes.flex, classes.centeredContent)}>
                                 <Link className={classes.link} href="/termsOfUse">
                                     <Typography variant="subtitle1" className={classes.underLineOne}>
                                         Terms of Use</Typography>
                                 </Link>
                             </Grid>
                             <Divider orientation="vertical" flexItem className={classes.divider}/>
-                            <Grid item className={classNames(classes.paddingTopBottom, classes.flex)}>
+                            <Grid item className={classNames(classes.padding, classes.flex, classes.centeredContent)}>
                                 <Link className={classes.link} href="/contactUs">
                                     <Typography variant="subtitle1" className={classes.underLineOne}>
                                         Contact Us</Typography>
@@ -79,15 +79,12 @@ const Footer = () => {
                     </Grid>
                 </Grid>
 
-                <Grid container direction="column" item xs={10} className={classNames(classes.marginAuto, classes.paddingTopBottom, classes.block)}>
+                <Grid container direction="column" item xs={10} className={classNames(classes.marginAuto, classes.paddingTopBottom, classes.alignContentCenter)}>
 
                     <Grid container xs={10} item className={classNames(classes.alignText, classes.flex)}>
                         <Typography variant="subtitle1">© Copyright Launchpad Entertainment, LLC. 2020. All rights
                             reserved.</Typography>
                     </Grid>
-                    {/* <Grid xs={3} item className={classes.marginAuto}>
-                        <img src="" className={classes.img} alt=""/>
-                    </Grid> */}
                     <Grid container direction={{ xs: 'column' }} xs={10} item className={classNames(classes.centeredContent, classes.flex)}>
                         <IconButton href="https://facebook.com">
                             <FacebookIcon fontSize="large"/>
